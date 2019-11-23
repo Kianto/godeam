@@ -30,3 +30,10 @@ exports.show = async (req, res, next) => {
     res.render('index', { title: 'GoDeam Toy World', products, loggedUser: loggingUser });
 
 };
+
+exports.searchProduct = async (req, res, next) => {
+    // TODO:
+
+    res.render('index', { title: 'GoDeam Toy World' });
+
+};
