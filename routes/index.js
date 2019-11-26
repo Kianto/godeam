@@ -1,30 +1,59 @@
 var express = require('express');
 var router = express.Router();
 
-// Require controllers.
-var homeCtrler = require('../controllers/HomeCtrler');
-var authCtrler = require('../controllers/AuthCtrler');
-
-
 /* GET home page. */
-router.get('/', homeCtrler.show);
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
+router.get('/index.ejs', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
+router.get('/about.ejs', function(req, res, next) {
+  res.render('about', { title: 'Express' });
+});
 
-/* GET login page. */
-router.get('/login', authCtrler.login);
+/* TODO: mãi ko nhận được post */ 
+router.post('/checkout.ejs', function(req, res, next) {
+  res.render('checkout', { title: 'Express' });
+});
 
-/* GET register page. */
-router.get('/register', authCtrler.register);
+router.get('/contact.ejs', function(req, res, next) {
+  res.render('contact', { title: 'Express' });
+});
 
-/* GET logout page. */
-router.get('/logout', authCtrler.logout);
+router.get('/error.ejs', function(req, res, next) {
+  res.render('error', { title: 'Express' });
+});
 
-/* GET detail info page. */
-router.get('/detailInfo', authCtrler.detailInfo);
+router.get('/icon.ejs', function(req, res, next) {
+  res.render('icon', { title: 'Express' });
+});
 
+router.get('/payment.ejs', function(req, res, next) {
+  res.render('payment', { title: 'Express' });
+});
 
+router.get('/product.ejs', function(req, res, next) {
+  res.render('product', { title: 'Express' });
+});
 
+router.get('/service.ejs', function(req, res, next) {
+  res.render('service', { title: 'Express' });
+});
+
+router.get('/shop.ejs', function(req, res, next) {
+  res.render('shop', { title: 'Express' });
+});
+
+router.get('/single.ejs', function(req, res, next) {
+  res.render('single', { title: 'Express' });
+});
+
+router.get('/typography.ejs', function(req, res, next) {
+  res.render('typography', { title: 'Express' });
+});
 
 
 module.exports = router;
