@@ -16,7 +16,7 @@ router.get('/about.ejs', function(req, res, next) {
 
 /* TODO: mãi ko nhận được post */ 
 router.post('/checkout.ejs', function(req, res, next) {
-  res.render('checkout', { title: 'Express' });
+  res.render('checkout.ejs', { title: 'Express' });
 });
 
 router.get('/contact.ejs', function(req, res, next) {
