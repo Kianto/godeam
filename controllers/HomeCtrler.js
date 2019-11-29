@@ -1,10 +1,13 @@
 var User = require('../models/User');
 var Product = require('../models/Product');
+var Category = require('../models/Category');
 
 exports.show = async (req, res, next) => {
-    let products = await Product.findOne({});
+    let products = await Product.find({});
+    let categories = await Category.find({});
     let loggingUser = null; // unlogged
-    
+
+    // create-update main user
     user = await User.findOne({ email: 'fakertester002@gmail.com' });   
     if (user) {
         loggingUser = user;
@@ -26,9 +29,27 @@ exports.show = async (req, res, next) => {
         loggingUser = newUser;
     }
 
-    console.log(loggingUser);
-    res.render('index', { title: 'GoDeam Toy World', products, loggedUser: loggingUser });
+    // console.log(loggingUser);
+    // console.log(products);
+    res.render('index', { title: 'GoDeam Toy World', categories, products, loggedUser: loggingUser });
 
+};
+
+exports.add = async (req, res, next) => {
+    
+
+    let newProduct = new Product({
+        name: req.body.name,
+        category: req.body.category,
+        price: req.body.price,
+        image: req.body.image,
+        description: req.body.description
+    });
+    console.log(newProduct);
+    newProduct.save(); 
+
+    res.redirect('/');
+    res.end();
 };
 
 exports.searchProduct = async (req, res, next) => {

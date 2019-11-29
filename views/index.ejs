@@ -10,6 +10,56 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
+    <div>
+    <form action='/addProduct', method='post'>
+      <label>Name</label>
+      <input type="text", name='name', required=''>
+      <br>
+
+      <label>Category</label>
+      <input type="text", name='category', required=''>
+      <br>
+
+      <label>Price </label>
+      <input type="number", name='price', required=''>
+      <br>
+
+      <label>Image</label>
+      <input type="text", name='image', required=''>
+      <br>
+
+      <label>Description</label>
+      <textarea name="description", rows="10", required=''></textarea>
+      <br>
+
+      <br>
+      <input type="submit", value='Create'>
+    </form>
+    <br>
+    </div>
+   
+    <div>
+      <p><b>Category:</b></p>
+        <% if (categories) {%>
+          <% for (var i = 0; i < categories.length; i=i+1) { %>
+            <li><%= categories[i].name %></li>         
+          <% } %>
+        <% } %>
+    </div>
+
+    <br>
+
+    <div>
+      <p><b>Product:</b></p>
+      <% if (products) {%>
+        <% for (var i = 0; i < products.length; i=i+1) { %>
+          <li><%= products[i].name %></li>
+          <img src='<%= products[i].image %>' alt=' '></img>
+       
+        <% } %>
+      <% } %>
+    </div>
+
     <%- include('footer') %>
   </body>
 </html>

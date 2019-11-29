@@ -9,21 +9,7 @@ var authCtrler = require('../controllers/AuthCtrler');
 /* GET home page. */
 router.get('/', homeCtrler.show);
 
-
-
-/* GET login page. */
-router.get('/login', authCtrler.login);
-
-/* GET register page. */
-router.get('/register', authCtrler.register);
-
-/* GET logout page. */
-router.get('/logout', authCtrler.logout);
-
-/* GET detail info page. */
-router.get('/detailInfo', authCtrler.detailInfo);
-
-
+router.post('/addProduct/', homeCtrler.add);
 
 
 
