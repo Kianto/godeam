@@ -12,8 +12,8 @@ const OrderSchema = new Schema({
     required: false
   },
   shipDate: {
-    type: Number,
-    default: 0.0
+    type: Date,
+    default: Date.now()
   },
   shipTo: {
     type: String,
@@ -30,11 +30,11 @@ const OrderSchema = new Schema({
   },
   createAt: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   },
   updateAt: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   }
 }, { collection: 'orders', versionKey: false });
 

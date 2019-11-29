@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
+// Require our controllers.
+var homeCtrler = require('../controllers/HomeCtrler');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
+// This route is for testing only
+router.get('/temp', homeCtrler.show);
 
 router.get('/index.ejs', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -14,8 +20,10 @@ router.get('/about.ejs', function(req, res, next) {
   res.render('about', { title: 'Express' });
 });
 
-/* TODO: mãi ko nhận được post */ 
+/* TODO: mãi ko nhận được post */
+/* POST: redirect to checkout page */
 router.post('/checkout.ejs', function(req, res, next) {
+  console.log(req.body)
   res.render('checkout.ejs', { title: 'Express' });
 });
 
@@ -39,6 +47,11 @@ router.get('/product.ejs', function(req, res, next) {
   res.render('product', { title: 'Express' });
 });
 
+/* GET product detail page */
+router.get('/product/:id', function(req, res, next) {
+  res.render('product', { title: 'Express' });
+});
+
 router.get('/service.ejs', function(req, res, next) {
   res.render('service', { title: 'Express' });
 });
@@ -55,5 +68,9 @@ router.get('/typography.ejs', function(req, res, next) {
   res.render('typography', { title: 'Express' });
 });
 
+/* GET product user page */
+router.get('/user/:id', function(req, res, next) {
+  res.render('product', { title: 'Express' });
+});
 
 module.exports = router;

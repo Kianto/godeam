@@ -39,4 +39,16 @@ const UserSchema = new Schema({
   }
 }, { collection: 'users', versionKey: false });
 
+UserSchema
+.virtual('url')
+.get(function () {
+    return '/profile/' + this._id;
+});
+
+UserSchema
+.statics
+.findByEmail = function (email) {
+  return User.findOne({ email: email });  
+};
+
 module.exports = User = mongoose.model("users", UserSchema);

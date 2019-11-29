@@ -5,14 +5,11 @@ exports.show = async (req, res, next) => {
     let products = await Product.findOne({});
     let loggingUser = null; // unlogged
     
-    user = await User.findOne({ email: 'fakertester002@gmail.com' });   
+    user = await User.findByEmail('fakertester002@gmail.com');   
     if (user) {
         loggingUser = user;
-        loggingUser.updateAt = Date.now();   
-        User.findByIdAndUpdate(user._id, loggingUser, {new: true}, (err, doc) => {
-            if (err) console.log("Error when updating: " + err);
-            else console.log("Updated");
-        });
+        loggingUser.updateAt = Date.now();  
+        loggingUser.save();
 
     } else {
         let newUser = new User({

@@ -13,6 +13,7 @@ const ProductSchema = new Schema({
   },
   price: {
     type: Number,
+    min: 0,
     default: 0.0
   },
   image: {
@@ -30,12 +31,18 @@ const ProductSchema = new Schema({
   },
   createAt: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   },
   updateAt: {
     type: Date,
-    default: Date.now
+    default: Date.now()
   }
 }, { collection: 'products', versionKey: false });
+
+ProductSchema
+.virtual('url')
+.get(function () {
+    return '/product/' + this._id;
+});
 
 module.exports = Product = mongoose.model("products", ProductSchema);
