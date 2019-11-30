@@ -45,7 +45,6 @@ router.get('/payment', function(req, res, next) {
   res.render('payment', { title: 'Express' });
 });
 
-<<<<<<< HEAD
 /* GET all categories */
 router.get('/categories', function(req, res, next) {
   CategoryCtrler.find(req, res, next);
@@ -54,10 +53,10 @@ router.get('/categories', function(req, res, next) {
 /* GET all products */
 router.get('/products', function(req, res, next) {
   ProductCtrler.find(req, res, next);
-=======
+});
+
 router.get('/product', function(req, res, next) {
   res.render('product', { title: 'Express' });
->>>>>>> 48ed5d63db91597fa8b6f848260f4d7d2f58360e
 });
 
 /* GET product detail page */
