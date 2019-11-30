@@ -30,7 +30,7 @@ exports.show = async (req, res, next) => {
 
 exports.searchProduct = async (req, res, next) => {
     // TODO:
-
+    
     res.render('index', { title: 'GoDeam Toy World' });
 
 };

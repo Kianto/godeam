@@ -1,4 +1,6 @@
 var express = require('express');
+var ProductCtrler = require('../controllers/ProductCtrler');
+var CategoryCtrler = require('../controllers/CategoryCtrler');
 var router = express.Router();
 
 // Require our controllers.
@@ -6,6 +8,7 @@ var homeCtrler = require('../controllers/HomeCtrler');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  
   res.render('index', { title: 'Express' });
 });
 
@@ -43,8 +46,14 @@ router.get('/payment.ejs', function(req, res, next) {
   res.render('payment', { title: 'Express' });
 });
 
-router.get('/product.ejs', function(req, res, next) {
-  res.render('product', { title: 'Express' });
+/* GET all categories */
+router.get('/categories', function(req, res, next) {
+  CategoryCtrler.find(req, res, next);
+});
+
+/* GET all products */
+router.get('/products', function(req, res, next) {
+  ProductCtrler.find(req, res, next);
 });
 
 /* GET product detail page */
