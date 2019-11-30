@@ -15,37 +15,37 @@ router.get('/', function(req, res, next) {
 // This route is for testing only
 router.get('/temp', homeCtrler.show);
 
-router.get('/index.ejs', function(req, res, next) {
+router.get('/index', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/about.ejs', function(req, res, next) {
-  res.render('about', { title: 'Express' });
+router.get('/about', function(req, res, next) {
+  res.render('about.ejs', { title: 'Express' });
 });
 
-/* TODO: mãi ko nhận được post */
 /* POST: redirect to checkout page */
-router.post('/checkout.ejs', function(req, res, next) {
+router.post('/checkout', function(req, res, next) {
   console.log(req.body)
   res.render('checkout.ejs', { title: 'Express' });
 });
 
-router.get('/contact.ejs', function(req, res, next) {
+router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Express' });
 });
 
-router.get('/error.ejs', function(req, res, next) {
+router.get('/error', function(req, res, next) {
   res.render('error', { title: 'Express' });
 });
 
-router.get('/icon.ejs', function(req, res, next) {
+router.get('/icon', function(req, res, next) {
   res.render('icon', { title: 'Express' });
 });
 
-router.get('/payment.ejs', function(req, res, next) {
+router.get('/payment', function(req, res, next) {
   res.render('payment', { title: 'Express' });
 });
 
+<<<<<<< HEAD
 /* GET all categories */
 router.get('/categories', function(req, res, next) {
   CategoryCtrler.find(req, res, next);
@@ -54,6 +54,10 @@ router.get('/categories', function(req, res, next) {
 /* GET all products */
 router.get('/products', function(req, res, next) {
   ProductCtrler.find(req, res, next);
+=======
+router.get('/product', function(req, res, next) {
+  res.render('product', { title: 'Express' });
+>>>>>>> 48ed5d63db91597fa8b6f848260f4d7d2f58360e
 });
 
 /* GET product detail page */
@@ -61,19 +65,19 @@ router.get('/product/:id', function(req, res, next) {
   res.render('product', { title: 'Express' });
 });
 
-router.get('/service.ejs', function(req, res, next) {
+router.get('/service', function(req, res, next) {
   res.render('service', { title: 'Express' });
 });
 
-router.get('/shop.ejs', function(req, res, next) {
+router.get('/shop', function(req, res, next) {
   res.render('shop', { title: 'Express' });
 });
 
-router.get('/single.ejs', function(req, res, next) {
+router.get('/single', function(req, res, next) {
   res.render('single', { title: 'Express' });
 });
 
-router.get('/typography.ejs', function(req, res, next) {
+router.get('/typography', function(req, res, next) {
   res.render('typography', { title: 'Express' });
 });
 
