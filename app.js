@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var dbConnection = require('./db/Connection');
+var mailer = require('./email/Mailer');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

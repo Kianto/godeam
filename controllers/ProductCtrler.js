@@ -1,5 +1,7 @@
 var Product = require('../models/Product');
 
+// TODO: This is unused
+
 exports.find = async (req, res, next) => {
     const products = await Product.find({});
     res.send({...products});

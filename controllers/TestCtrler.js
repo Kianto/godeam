@@ -24,6 +24,8 @@ exports.show = async (req, res, next) => {
     }
 
     console.log(loggingUser);
+    // await Mailer.sendOrderConfirmMail(loggingUser.email);
+    // res.render('error', { message: "Ok", error: null });
     res.render('index', { title: 'GoDeam Toy World', products, loggedUser: loggingUser });
 
 };
