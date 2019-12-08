@@ -6,6 +6,11 @@ const CategorySchema = new Schema({
   name: {
     type: String,
     required: true
+  },
+
+  link: {
+    type: String,
+    required: true
   }
 }, { collection: 'categories', versionKey: false });
 

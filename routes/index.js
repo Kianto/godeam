@@ -11,31 +11,12 @@ var CategoryCtrler = require('../controllers/CategoryCtrler');
 //========================================>
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'GoDeam Toy World' });
-});
-
-router.get('/index', function(req, res, next) {
-  res.render('index', { title: 'GoDeam Toy World' });
-});
-
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'GoDeam Toy World' });
-});
+router.get('/', shopCtrler.homeShow);
 
 /* POST: redirect to checkout page */
-router.post('/checkout', function(req, res, next) {
-  console.log(req.body)
-  res.render('checkout', { title: 'GoDeam Toy World' });
-});
+router.post('/checkout',shopCtrler.checkout);
 
-router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'GoDeam Toy World' });
-});
-
-router.get('/icon', function(req, res, next) {
-  res.render('icon', { title: 'GoDeam Toy World' });
-});
+router.get('/contact', shopCtrler.contact);
 
 router.get('/payment', function(req, res, next) {
   res.render('payment', { title: 'GoDeam Toy World' });
@@ -50,20 +31,14 @@ router.get('/product/:id', function(req, res, next) {
   res.render('product', { title: 'GoDeam Toy World' });
 });
 
-router.get('/service', function(req, res, next) {
-  res.render('service', { title: 'GoDeam Toy World' });
-});
+/* GET shop page showing products by name search */
+router.get('/search', shopCtrler.searchShow);
 
-router.get('/shop', function(req, res, next) {
-  res.render('shop', { title: 'GoDeam Toy World' });
-});
+/* GET shop page showing products by category */
+router.get('/shop', shopCtrler.shopShow);
 
 router.get('/single', function(req, res, next) {
   res.render('single', { title: 'GoDeam Toy World' });
-});
-
-router.get('/typography', function(req, res, next) {
-  res.render('typography', { title: 'GoDeam Toy World' });
 });
 
 //========================================>
