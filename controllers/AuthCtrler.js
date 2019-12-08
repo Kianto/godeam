@@ -2,6 +2,7 @@ var User = require('../models/User');
 var Mailer = require('../email/Mailer');
 
 exports.login = async (req, res, next) => {
+    console.log(req.body);
     // TODO:
 
     res.render('index', { title: 'GoDeam Toy World' });
@@ -9,6 +10,7 @@ exports.login = async (req, res, next) => {
 };
 
 exports.register = async (req, res, next) => {
+    console.log(req.body);
     // TODO:
 
     res.render('index', { title: 'GoDeam Toy World' });
@@ -16,6 +18,7 @@ exports.register = async (req, res, next) => {
 };
 
 exports.forgotPassword = async (req, res, next) => {
+    console.log(req.body);
     // TODO:
 
     res.render('index', { title: 'GoDeam Toy World' });
@@ -23,6 +26,7 @@ exports.forgotPassword = async (req, res, next) => {
 };
 
 exports.logout = async (req, res, next) => {
+    console.log(req.body);
     // TODO:
 
     res.render('index', { title: 'GoDeam Toy World' });
@@ -30,6 +34,7 @@ exports.logout = async (req, res, next) => {
 };
 
 exports.profile = async (req, res, next) => {
+    console.log(req.body);
     // TODO:
 
     res.render('index', { title: 'GoDeam Toy World' });
@@ -37,6 +42,7 @@ exports.profile = async (req, res, next) => {
 };
 
 exports.editInfo = async (req, res, next) => {
+    console.log(req.body);
     // TODO:
 
     res.render('index', { title: 'GoDeam Toy World' });
@@ -44,6 +50,7 @@ exports.editInfo = async (req, res, next) => {
 };
 
 exports.editPassword = async (req, res, next) => {
+    console.log(req.body);
     // TODO:
 
     res.render('index', { title: 'GoDeam Toy World' });
