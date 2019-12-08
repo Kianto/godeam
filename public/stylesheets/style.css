@@ -14,7 +14,24 @@ body {
     letter-spacing: 1px;
 font-family: 'Sunflower', sans-serif;
 }
-
+/*--------------------------*/
+.forgot_pass
+{
+    color: blue;
+    text-decoration-line: underline;
+    display: inline-block;
+    cursor: pointer;
+    float: left;
+}
+.register_account
+{
+    color: blue;
+    text-decoration-line: underline;
+    display: inline-block;
+    cursor: pointer;
+    float: right;
+}
+/*--------------------------*/
 body a {
     outline: none;
     transition: 0.5s all;
