@@ -6,8 +6,8 @@ exports.homeShow = async (req, res, next) => {
     let cates = await Category.find({});
     let products = await Product.find({}).sort({ updateAt: -1, price: -1 }).limit(12);
     
+    console.log('USER: ', res.locals.user);
     res.render('index', { categories : cates, products });
-
 };
 
 exports.shopShow = async (req, res, next) => {
