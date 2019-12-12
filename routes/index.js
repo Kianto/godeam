@@ -15,12 +15,12 @@ router.get('/', shopCtrler.homeShow);
 
 /* POST: redirect to checkout page */
 router.post('/checkout',shopCtrler.checkout);
+/* GET: redirect to checkout page */
+router.get('/checkout',shopCtrler.checkout);
 
 router.get('/contact', shopCtrler.contact);
 
-router.get('/payment', function(req, res, next) {
-  res.render('payment', { title: 'GoDeam Toy World' });
-});
+router.get('/payment', shopCtrler.payment);
 
 router.get('/product', function(req, res, next) {
   res.render('product', { title: 'GoDeam Toy World' });

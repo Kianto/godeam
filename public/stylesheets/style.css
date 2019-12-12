@@ -12,12 +12,13 @@ body {
     margin: 0;
     background: #fff;
     letter-spacing: 1px;
-font-family: 'Sunflower', sans-serif;
+font-family: 'helvetica','Sunflower', sans-serif;
 }
 /*--------------------------*/
 .forgot_pass
 {
-    color: blue;
+    font-size: 12px;
+    color: rgb(174, 174, 180);
     text-decoration-line: underline;
     display: inline-block;
     cursor: pointer;
@@ -25,7 +26,8 @@ font-family: 'Sunflower', sans-serif;
 }
 .register_account
 {
-    color: blue;
+    font-size: 12px;
+    color: rgb(174, 174, 180);
     text-decoration-line: underline;
     display: inline-block;
     cursor: pointer;
@@ -59,7 +61,7 @@ input[type="submit"] {
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
     letter-spacing: 1px;
-font-family: 'Sunflower', sans-serif;
+font-family: 'helvetica','Sunflower', sans-serif;
 }
 select,input[type="email"],input[type="text"],input[type=password],
 input[type="button"],input[type="submit"],textarea{
@@ -80,7 +82,7 @@ h5,
 h6 {
     margin: 0;
     padding: 0;
-font-family: 'Sunflower', sans-serif;
+font-family: 'helvetica','Sunflower', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -166,7 +168,7 @@ margin: 0px;
 /*--//headder info-contact --*/
 .search-right input[type="search"] {
 	width:85%;
-    color: #fff;
+    color: #000000;
     background-color: #e4e4e4;
     outline: none !important;
     font-size: 14px;
