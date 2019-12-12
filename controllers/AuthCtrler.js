@@ -1,5 +1,5 @@
 var User = require('../models/User');
-var Mailer = require('../email/Mailer');
+var Mailer = require('../utils/Mailer');
 
 exports.login = async (req, res, next) => {
     console.log(req.body);

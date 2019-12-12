@@ -38,4 +38,9 @@ const OrderSchema = new Schema({
   }
 }, { collection: 'orders', versionKey: false });
 
+OrderSchema.pre('save', function (next) {
+  this.updateAt = Date.now(); 
+  next();
+});
+
 module.exports = Order = mongoose.model("orders", OrderSchema);
