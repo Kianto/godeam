@@ -13,15 +13,18 @@ exports.homeShow = async (req, res, next) => {
 exports.shopShow = async (req, res, next) => {
     let cates = await Category.find({});
     let products;
+    let titleToy;
 
     if (!req.query.category) {
+        titleToy = "Đồ chơi";
         products = await Product.find({});
     } else {
         let cateName = await Category.findOne({ 'link': req.query.category });
         products = await Product.find({ 'category' : cateName.name });
+        titleToy = cateName.name;
     }
     
-    res.render('shop', { categories : cates, products });
+    res.render('shop', { categories : cates, products, titleToy });
 };
 
 exports.searchShow = async (req, res, next) => {
