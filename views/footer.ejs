@@ -71,7 +71,7 @@
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Đăng Nhập</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -81,22 +81,22 @@
                <form action="/login" method="post">
                   <div class="fields-grid">
                      <div class="styled-input">
-                        <input type="email" placeholder="Your Email" name="email" required="">
+                        <input type="email" placeholder="Email của bạn" name="email" required="">
                      </div>
                      <div class="styled-input">
-                        <input type="password" placeholder="password" name="password" required="">
+                        <input type="password" placeholder="mật khẩu" name="password" required="">
                      </div>
                      <div style="margin-bottom: 20px;">
-                        <p data-toggle="modal" data-target="#exampleModal_forgot" class="forgot_pass">Forgot your password?</p>
-                        <P data-toggle="modal" data-target="#exampleModal_register" class="register_account">Create your account</P>
+                        <p data-toggle="modal" data-target="#exampleModal_forgot" class="forgot_pass">Quên mật khẩu?</p>
+                        <P data-toggle="modal" data-target="#exampleModal_register" class="register_account">Tạo tài khoản mới</P>
                      </div>
-                     <button type="submit" class="btn subscrib-btnn">Login</button>
+                     <button type="submit" class="btn subscrib-btnn">Đăng Nhập</button>
                   </div>
                </form>
             </div>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
          </div>
       </div>
    </div>
@@ -107,7 +107,7 @@
  <div class="modal-dialog" role="document">
     <div class="modal-content">
        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Quên Mật Khẩu</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
@@ -117,15 +117,15 @@
              <form action="/forgotPassword" method="post">
                 <div class="fields-grid">
                    <div class="styled-input">
-                      <input type="email" placeholder="Your Email" name="email" required="">
+                      <input type="email" placeholder="Nhập email của bạn" name="email" required="">
                    </div>
-                   <button type="submit" class="btn subscrib-btnn">Get your Password</button>
+                   <button type="submit" class="btn subscrib-btnn">Lấy mật khẩu</button>
                 </div>
              </form>
           </div>
        </div>
        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
        </div>
     </div>
  </div>
@@ -146,26 +146,137 @@
              <form action="/register" method="post">
                 <div class="fields-grid">
                    <div class="styled-input">
-                      <input type="text" placeholder="Your Name" name="name" required="">
+                      <input type="text" placeholder="Nhập tên của bạn" name="name" required="">
                    </div>
                    <div class="styled-input">
-                      <input type="email" placeholder="Your Email" name="email" required="">
+                      <input type="email" placeholder="Nhập email của bạn" name="email" required="">
                    </div>
                    <div class="styled-input">
-                      <input type="password" placeholder="password" name="password" required="">
+                      <input type="password" placeholder="nhập mật khẩu" name="password" required="">
                    </div>
                    <div class="styled-input">
-                     <input type="password" placeholder="pre-password" name="repassword" required="">
+                     <input type="password" placeholder="nhập lại mật khẩu" name="repassword" required="">
                   </div>
-                   <button type="submit" class="btn subscrib-btnn">Sign Up</button>
+                   <button type="submit" class="btn subscrib-btnn">Đăng ký</button>
                 </div>
              </form>
           </div>
        </div>
        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
        </div>
     </div>
  </div>
 </div>
 <!-- //Modal Register-->
+ <!-- Modal Info-->
+ <div class="modal fade" id="exampleModal_info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thông tin tài khoản</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+          
+         <div class="modal-body">
+            <form action="/logout" method="post">
+               <div class="row">  
+                  <div class="col-sm-6 col-md-6">  
+                    <div class="form-group">  
+                      <label for="Name">Tên của bạn</label>  
+                      <input autofocus="autofocus" class="form-control" id="Email" name="Name" type="text" value="God" disabled=true>  
+                    </div>  
+                    <div class="form-group">  
+                      <label for="Email">Email của bạn</label>  
+                      <input class="form-control" id="FirstName" name="Email" type="text" value="kianto@gmail.com "disabled=true>  
+                    </div>  
+                    <div class="form-group">  
+                      <label for="Phone">Số điện thoại của bạn</label>  
+                      <input class="form-control" id="LastName" name="Phone" type="text" value="0909092052"disabled=true>  
+                    </div>  
+                    <div class="form-group">  
+                      <label for="Address">Địa chỉ của bạn</label>  
+                      <input class="form-control" id="Password" name="Address" type="text" disabled=true value="227 Đường Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                      Việt Nam">  
+                    </div>  
+                  </div>  
+                </div>  
+                  
+                
+                <button type="submit" class="btn btn-primary" id="UpdateProfile">  
+                  Đăng xuất
+                </button> 
+                
+            </form>
+         </br>
+            <button  class="btn btn-primary" id="UpdateProfile">  
+               Chỉnh sửa thông tin  
+             </button> 
+            <button  class="btn btn-primary" id="UpdateProfile" data-toggle="modal" data-target="#exampleModal_ChangePass">  
+               Đổi Mật Khẩu
+             </button> 
+            
+             
+            <!-- <div class="register-form">
+               <form action="/login" method="post">
+                  <div class="fields-grid">
+                     <div class="styled-input">
+                        <input type="email" placeholder="Email của bạn" name="email" required="">
+                     </div>
+                     <div class="styled-input">
+                        <input type="password" placeholder="mật khẩu" name="password" required="">
+                     </div>
+                     <div style="margin-bottom: 20px;">
+                        <p data-toggle="modal" data-target="#exampleModal_forgot" class="forgot_pass">Quên mật khẩu?</p>
+                        <P data-toggle="modal" data-target="#exampleModal_register" class="register_account">Tạo tài khoản mới</P>
+                     </div>
+                     <button type="submit" class="btn subscrib-btnn">Đăng Xu</button>
+                  </div>
+               </form>
+            </div> -->
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- //Modal 2-->
+<!-- Modal Change_pass-->
+<div class="modal fade" id="exampleModal_ChangePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Mật Khẩu</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <div class="register-form">
+               <form action="/register" method="post">
+                  <div class="fields-grid">
+                     <div class="styled-input">
+                        <input type="password" placeholder="Nhập mật khẩu của bạn" name="name" required="">
+                     </div>
+                     <div class="styled-input">
+                        <input type="password" placeholder="Nhập mật khẩu mới" name="email" required="">
+                     </div>
+                     <div class="styled-input">
+                        <input type="password" placeholder="Nhập lại mật khẩu mới" name="password" required="">
+                     </div>
+                     
+                     <button type="submit" class="btn subscrib-btnn">Đổi Mật Khẩu</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+         </div>
+      </div>
+   </div>
+  </div>
+  <!-- //Modal Register-->

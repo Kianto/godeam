@@ -5,9 +5,9 @@ var Category = require('../models/Category');
 exports.homeShow = async (req, res, next) => {
     let cates = await Category.find({});
     let products = await Product.find({}).sort({ updateAt: -1, price: -1 }).limit(12);
-    
+    let loggined = true;
     console.log('USER: ', res.locals.user);
-    res.render('index', { categories : cates, products });
+    res.render('index', { categories : cates, products , loggined});
 };
 
 exports.shopShow = async (req, res, next) => {
@@ -91,5 +91,13 @@ exports.single = async (req, res, next) => {
     
    
     res.render('single', { categories : cates, product });
+
+};
+exports.logout = async (req, res, next) => {
+    let cates = await Category.find({});
+    let products = await Product.find({}).sort({ updateAt: -1, price: -1 }).limit(12);
+    let loggined = false;
+    console.log('USER: ', res.locals.user);
+    res.render('index', { categories : cates, products , loggined});
 
 };

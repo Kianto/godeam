@@ -4,8 +4,9 @@ var Mailer = require('../utils/Mailer');
 exports.login = async (req, res, next) => {
     console.log(req.body);
     // TODO:
+    //let logined = true;
 
-    res.render('index', { title: 'GoDeam Toy World' });
+    res.render('index', { logined });
 
 };
 

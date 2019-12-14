@@ -34,8 +34,18 @@
                         <span class="far fa-heart"></span>
                      </li>
                      <li>
-                        <button type="button" data-toggle="modal" data-target="#exampleModal"> <span
+                        <% if (loggined)
+                        { %>
+                           <button type="button" data-toggle="modal" data-target="#exampleModal_info"> <span
+                              class="far fa-user-edit"></span></button>
+                     <% }
+                        else
+                        { %>
+                           <button type="button" data-toggle="modal" data-target="#exampleModal"> <span
                               class="far fa-user"></span></button>
+                     <% } %>
+                        
+                        
                      </li>
                      <li class="toyscart toyscart2 cart cart box_1">
                         <form action="#" method="post" class="last">
