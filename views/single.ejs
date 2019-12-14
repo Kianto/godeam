@@ -137,8 +137,8 @@
                            <form action="#" method="post">
                               <input type="hidden" name="cmd" value="_cart">
                               <input type="hidden" name="add" value="1">
-                              <input type="hidden" name="toys_item" value="Farenheit">
-                              <input type="hidden" name="amount" value="575.00">
+                              <input type="hidden" name="toys_item" value="<%= product.name %>">
+                              <input type="hidden" name="amount" value=<%=product.price%>>
                               <button type="submit" class="toys-cart ptoys-cart add">
                               Add to Cart
                               </button>
@@ -225,7 +225,7 @@
                                              </div> -->
                                           </div>
                                           <textarea name="Message" required=""></textarea>
-                                          <input type="submit" value="SEND">
+                                          <input type="submit" value="Gửi">
                                        </form>
                                     </div>
                                  </div>
