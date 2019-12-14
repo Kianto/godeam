@@ -72,14 +72,14 @@
                      <div class="grid images_3_of_2">
                         <div class="flexslider1">
                            <ul class="slides">
-                              <li data-thumb="/images/f2.jpg">
-                                 <div class="thumb-image"> <img src="/images/f2.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                              <li data-thumb="<%= product.image %>">
+                                 <div class="thumb-image"> <img src="<%= product.image %>" data-imagezoom="true" class="img-fluid" alt=" "> </div>
                               </li>
-                              <li data-thumb="/images/f1.jpg">
-                                 <div class="thumb-image"> <img src="/images/f1.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                              <li data-thumb="<%= product.image %>">
+                                 <div class="thumb-image"> <img src="<%= product.image %>" data-imagezoom="true" class="img-fluid" alt=" "> </div>
                               </li>
-                              <li data-thumb="/images/f3.jpg">
-                                 <div class="thumb-image"> <img src="/images/f3.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+                              <li data-thumb="<%= product.image %>">
+                                 <div class="thumb-image"> <img src="<%= product.image %>" data-imagezoom="true" class="img-fluid" alt=" "> </div>
                               </li>
                            </ul>
                            <div class="clearfix"></div>
@@ -87,9 +87,9 @@
                      </div>
                   </div>
                   <div class="col-lg-8 single-right-left simpleCart_shelfItem">
-                     <h3>Soft Teddy Bear (Brown)</h3>
-                     <p><span class="item_price">$650</span>
-                        <del>$1,199</del>
+                     <h3><%= product.name %></h3>
+                     <p><span class="item_price"><%=product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") %> đ</span>
+                        <!-- <del>$1,199</del> -->
                      </p>
                      <div class="rating1">
                         <ul class="stars">
@@ -101,7 +101,7 @@
                         </ul>
                      </div>
                      <div class="description">
-                        <h5>Check delivery, payment options and charges at your location</h5>
+                        <h5><%=product.description %> </h5>
                         <form action="#" method="post">
                            <input class="form-control" type="text" name="Email" placeholder="Please enter..." required="">
                            <input type="submit" value="Check">
@@ -118,7 +118,7 @@
                            </select>
                         </div>
                      </div>
-                     <div class="occasional">
+                     <!-- <div class="occasional">
                         <h5>Types :</h5>
                         <div class="colr ert">
                            <label class="radio"><input type="radio" name="radio" checked=""><i></i> Soft Teddy Bear (Black)</label>
@@ -130,7 +130,8 @@
                            <label class="radio"><input type="radio" name="radio"><i></i>Pink Teddy Bear (Pink)</label>
                         </div>
                         <div class="clearfix"> </div>
-                     </div>
+                     </div> -->
+                  </br>
                      <div class="occasion-cart">
                         <div class="toys single-item singlepage">
                            <form action="#" method="post">
@@ -178,25 +179,18 @@
                   <div class="responsive_tabs">
                      <div id="horizontalTab">
                         <ul class="resp-tabs-list">
-                           <li>Description</li>
-                           <li>Reviews</li>
-                           <li>Information</li>
+                           <li>Mô tả Sản Phẩm </li>
+                           <li>Đánh Giá</li>
+                           <li>Thông tin</li>
                         </ul>
                         <div class="resp-tabs-container">
                            <!--/tab_one-->
                            <div class="tab1">
                               <div class="single_page">
-                                 <h6>Lorem ipsum dolor sit amet</h6>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
-                                 <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
+                                 <h6><%=product.name %></h6>
+                                 <p><%=product.description %></p>
+                                 
+                                 
                               </div>
                            </div>
                            <!--//tab_one-->
@@ -223,12 +217,12 @@
                                        <h4>add a review</h4>
                                        <form action="#" method="post">
                                           <div class="row">
-                                             <div class="col-md-6">
+                                             <!-- <div class="col-md-6">
                                                 <input type="text" name="Name" required="">
                                              </div>
                                              <div class="col-md-6">
                                                 <input type="email" name="Email" required="">
-                                             </div>
+                                             </div> -->
                                           </div>
                                           <textarea name="Message" required=""></textarea>
                                           <input type="submit" value="SEND">
@@ -264,10 +258,10 @@
        <% include footer%>
        <!-- //Footer -->
       <!--jQuery-->
-      <script src="/javasripts/jquery-2.2.3.min.js"></script>
+      <script src="/javascripts/jquery-2.2.3.min.js"></script>
       <!-- newsletter modal -->
       <!-- cart-js -->
-      <script src="/javasripts/minicart.js"></script>
+      <script src="/javascripts/minicart.js"></script>
       <script>
          toys.render();
          
@@ -283,7 +277,7 @@
       </script>
       <!-- //cart-js -->
       <!-- price range (top products) -->
-      <script src="/javasripts/jquery-ui.js"></script>
+      <script src="/javascripts/jquery-ui.js"></script>
       <script>
          //<![CDATA[ 
          $(window).load(function () {
@@ -302,10 +296,10 @@
       </script>
       <!-- //price range (top products) -->
       <!-- single -->
-      <script src="/javasripts/imagezoom.js"></script>
+      <script src="/javascripts/imagezoom.js"></script>
       <!-- single -->
       <!-- script for responsive tabs -->
-      <script src="/javasripts/easy-responsive-tabs.js"></script>
+      <script src="/javascripts/easy-responsive-tabs.js"></script>
       <script>
          $(document).ready(function () {
          	$('#horizontalTab').easyResponsiveTabs({
@@ -329,7 +323,7 @@
          });
       </script>
       <!-- FlexSlider -->
-      <script src="/javasripts/jquery.flexslider.js"></script>
+      <script src="/javascripts/jquery.flexslider.js"></script>
       <script>
          // Can also be used with $(document).ready()
          $(window).load(function () {
@@ -341,8 +335,8 @@
       </script>
       <!-- //FlexSlider-->
       <!-- start-smoth-scrolling -->
-      <script src="/javasripts/move-top.js"></script>
-      <script src="/javasripts/easing.js"></script>
+      <script src="/javascripts/move-top.js"></script>
+      <script src="/javascripts/easing.js"></script>
       <script>
          jQuery(document).ready(function ($) {
          	$(".scroll").click(function (event) {
@@ -375,7 +369,7 @@
       <!-- //here ends scrolling icon -->
       <!-- //smooth-scrolling-of-move-up -->
       <!--bootstrap working-->
-      <script src="/javasripts/bootstrap.min.js"></script>
+      <script src="/javascripts/bootstrap.min.js"></script>
       <!-- //bootstrap working--> 
    </body>
 </html>

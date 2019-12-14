@@ -21,10 +21,13 @@ router.get('/checkout',shopCtrler.checkout);
 router.get('/contact', shopCtrler.contact);
 
 router.get('/payment', shopCtrler.payment);
+/* GET: redirect to single page */
+router.get('/single', shopCtrler.single);
 
 router.get('/product', function(req, res, next) {
   res.render('product', { title: 'GoDeam Toy World' });
 });
+
 
 /* GET product detail page */
 router.get('/product/:id', function(req, res, next) {
@@ -37,9 +40,9 @@ router.get('/search', shopCtrler.searchShow);
 /* GET shop page showing products by category */
 router.get('/shop', shopCtrler.shopShow);
 
-router.get('/single', function(req, res, next) {
-  res.render('single', { title: 'GoDeam Toy World' });
-});
+// router.get('/single', function(req, res, next) {
+//   res.render('single', { title: 'GoDeam Toy World' });
+// });
 
 //========================================>
 

@@ -177,6 +177,9 @@
                </div>
                <div class="left-ads-display col-lg-9">
                   <div class="row">
+                     <%
+                  include rut_gon_content
+                  %>
                      <% for (var i = 0; i < products.length; i=i+1) { %>
                      <div class="col-lg-4 col-md-6 col-sm-6 product-men women_two">
                         <div class="product-toys-info">
@@ -185,7 +188,7 @@
                                  <img src=<%=products[i].image %> class="img-thumbnail img-fluid" alt="">
                                  <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
-                                       <a href="single" class="link-product-add-cart">Quick View</a>
+                                       <a href="/single" class="link-product-add-cart">Xem Chi Tiết</a>
                                     </div>
                                  </div>
                                  <span class="product-new-top">New</span>
@@ -195,7 +198,7 @@
                                     <div class="grid_meta">
                                        <div class="product_price">
                                           <h4>
-                                             <a href="single"><%=products[i].name %></a>
+                                             <a href="/single"><%= shorten(products[i].name, 6) %></a>
                                           </h4>
                                           <div class="grid-price mt-2">
                                              <span class="money "><%=products[i].price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") %> đ</span>

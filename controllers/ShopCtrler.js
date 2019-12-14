@@ -83,3 +83,13 @@ exports.payment = async (req, res, next) => {
     res.render('payment', { categories : cates });
 
 };
+exports.single = async (req, res, next) => {
+    let cates = await Category.find({});
+
+    
+    let product = await Product.findById(req.query.id);
+    
+   
+    res.render('single', { categories : cates, product });
+
+};
