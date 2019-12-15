@@ -47,7 +47,7 @@ router.get('/shop', shopCtrler.shopShow);
 //========================================>
 
 /* POST login form */
-router.post('/login', shopCtrler.homeShow);
+router.post('/login', shopCtrler.login);
 
 /* POST register form */
 router.post('/register', authCtrler.register);
@@ -62,10 +62,10 @@ router.post('/logout', shopCtrler.logout);
 router.get('/profile', authCtrler.profile);
 
 /* POST change info form */
-router.get('/changeInfo', authCtrler.editInfo);
+router.post('/changeInfo', shopCtrler.changeInfo);
 
 /* POST change password form */
-router.get('/changePassword', authCtrler.editPassword);
+router.post('/changePassword', authCtrler.editPassword);
 
 //========================================>
 

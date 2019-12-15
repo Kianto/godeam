@@ -181,42 +181,48 @@
          </div>
           
          <div class="modal-body">
-            <form action="/logout" method="post">
+            <form action="/changeInfo" method="post">
                <div class="row">  
                   <div class="col-sm-6 col-md-6">  
                     <div class="form-group">  
                       <label for="Name">Tên của bạn</label>  
-                      <input autofocus="autofocus" class="form-control" id="Email" name="Name" type="text" value="God" disabled=true>  
+                      <input autofocus="autofocus" class="input_info" id="Name_info" name="Name" type="text" value="God" disabled=true>
                     </div>  
                     <div class="form-group">  
                       <label for="Email">Email của bạn</label>  
-                      <input class="form-control" id="FirstName" name="Email" type="text" value="kianto@gmail.com "disabled=true>  
+                      <input class="input_info" id="Email_info" name="Email_info" type="text" value="kianto@gmail.com "disabled=true>  
                     </div>  
                     <div class="form-group">  
                       <label for="Phone">Số điện thoại của bạn</label>  
-                      <input class="form-control" id="LastName" name="Phone" type="text" value="0909092052"disabled=true>  
+                      <input class="input_info" id="Phone_info" name="Phone_info" type="text" value="0909092052"disabled=true>  
                     </div>  
                     <div class="form-group">  
                       <label for="Address">Địa chỉ của bạn</label>  
-                      <input class="form-control" id="Password" name="Address" type="text" disabled=true value="227 Đường Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                      <input class="input_info" id="Address_info" name="Address_info" type="text" disabled=true value="227 Đường Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh
                       Việt Nam">  
                     </div>  
                   </div>  
-                </div>  
-                  
+                </div>
                 
-                <button type="submit" class="btn btn-primary" id="UpdateProfile">  
-                  Đăng xuất
-                </button> 
+                <script src="/javascripts/my_javascript.js"></script>
+               <button type="button" onclick="Edit()"  id="btn_edit_info" class="btn btn-primary" >  
+                  Chỉnh sửa thông tin  
+               </button> 
+
+               <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal_ChangePass">  
+                  Đổi Mật Khẩu
+               </button> 
                 
             </form>
          </br>
-            <button  class="btn btn-primary" id="UpdateProfile">  
-               Chỉnh sửa thông tin  
-             </button> 
-            <button  class="btn btn-primary" id="UpdateProfile" data-toggle="modal" data-target="#exampleModal_ChangePass">  
-               Đổi Mật Khẩu
-             </button> 
+            <form action="/logout" method="post">
+               <button type="submit" class="btn btn-primary" >  
+                  Đăng xuất
+                </button> 
+            </form>
+            
+         </br>
+            
             
              
             <!-- <div class="register-form">
@@ -280,3 +286,4 @@
    </div>
   </div>
   <!-- //Modal Register-->
+  

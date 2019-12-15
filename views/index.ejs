@@ -195,8 +195,8 @@
                                              <form action="#" method="post">
                                                 <input type="hidden" name="cmd" value="_cart">
                                                 <input type="hidden" name="add" value="1">
-                                                <input type="hidden" name="toys_item" value="toys(barbie)">
-                                                <input type="hidden" name="amount" value="575.00">
+                                                <input type="hidden" name="toys_item" value="<%=products[i].name %>">
+                                                <input type="hidden" name="amount" value="<%=products[i].price %>">
                                                 <button type="submit" class="toys-cart ptoys-cart">
                                                 <i class="fas fa-cart-plus"></i>
                                                 </button>

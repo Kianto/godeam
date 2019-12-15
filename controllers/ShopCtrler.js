@@ -1,13 +1,14 @@
 var User = require('../models/User');
 var Product = require('../models/Product');
 var Category = require('../models/Category');
+_logined = false;
 
 exports.homeShow = async (req, res, next) => {
     let cates = await Category.find({});
     let products = await Product.find({}).sort({ updateAt: -1, price: -1 }).limit(12);
-    let loggined = true;
+   
     console.log('USER: ', res.locals.user);
-    res.render('index', { categories : cates, products , loggined});
+    res.render('index', { categories : cates, products });
 };
 
 exports.shopShow = async (req, res, next) => {
@@ -96,8 +97,24 @@ exports.single = async (req, res, next) => {
 exports.logout = async (req, res, next) => {
     let cates = await Category.find({});
     let products = await Product.find({}).sort({ updateAt: -1, price: -1 }).limit(12);
-    let loggined = false;
+    _logined = false;
     console.log('USER: ', res.locals.user);
-    res.render('index', { categories : cates, products , loggined});
+    res.render('index', { categories : cates, products });
+
+};
+exports.login = async (req, res, next) => {
+    let cates = await Category.find({});
+    let products = await Product.find({}).sort({ updateAt: -1, price: -1 }).limit(12);
+    _logined = true
+    console.log('USER: ', res.locals.user);
+    res.render('index', { categories : cates, products });
+
+};
+exports.changeInfo = async (req, res, next) => {
+    let cates = await Category.find({});
+    let products = await Product.find({}).sort({ updateAt: -1, price: -1 }).limit(12);
+    _logined = true
+    console.log('USER: ', res.locals.user);
+    res.render('index', { categories : cates, products });
 
 };
