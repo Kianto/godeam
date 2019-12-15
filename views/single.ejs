@@ -54,10 +54,10 @@
          <div class="inner_breadcrumb  ml-4">
             <ul class="short_ls">
                <li>
-                  <a href="index">Home</a>
+                  <a href="/">Trang chủ</a>
                   <span>/ /</span>
                </li>
-               <li>Single Page</li>
+               <li>Chi tiết sản phẩm</li>
             </ul>
          </div>
       </div>
@@ -102,35 +102,7 @@
                      </div>
                      <div class="description">
                         <h5><%=product.description %> </h5>
-                        <form action="#" method="post">
-                           <input class="form-control" type="text" name="Email" placeholder="Please enter..." required="">
-                           <input type="submit" value="Check">
-                        </form>
                      </div>
-                     <div class="color-quality">
-                        <div class="color-quality-right">
-                           <h5>Size :</h5>
-                           <select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-                              <option value="null">2 Feet</option>
-                              <option value="null">3 Feet</option>
-                              <option value="null">4 Feet</option>
-                              <option value="null">5 Feet</option>
-                           </select>
-                        </div>
-                     </div>
-                     <!-- <div class="occasional">
-                        <h5>Types :</h5>
-                        <div class="colr ert">
-                           <label class="radio"><input type="radio" name="radio" checked=""><i></i> Soft Teddy Bear (Black)</label>
-                        </div>
-                        <div class="colr">
-                           <label class="radio"><input type="radio" name="radio"><i></i>Soft Teddy Bear (Brown)</label>
-                        </div>
-                        <div class="colr">
-                           <label class="radio"><input type="radio" name="radio"><i></i>Pink Teddy Bear (Pink)</label>
-                        </div>
-                        <div class="clearfix"> </div>
-                     </div> -->
                   </br>
                      <div class="occasion-cart">
                         <div class="toys single-item singlepage">
@@ -140,7 +112,7 @@
                               <input type="hidden" name="toys_item" value="<%= product.name %>">
                               <input type="hidden" name="amount" value=<%=product.price%>>
                               <button type="submit" class="toys-cart ptoys-cart add">
-                              Add to Cart
+                              Thêm vào giỏ
                               </button>
                            </form>
                         </div>
@@ -181,7 +153,6 @@
                         <ul class="resp-tabs-list">
                            <li>Mô tả Sản Phẩm </li>
                            <li>Đánh Giá</li>
-                           <li>Thông tin</li>
                         </ul>
                         <div class="resp-tabs-container">
                            <!--/tab_one-->
@@ -189,8 +160,8 @@
                               <div class="single_page">
                                  <h6><%=product.name %></h6>
                                  <p><%=product.description %></p>
-                                 
-                                 
+                                 <p>                                                                                                                                                                                                                     
+                                 </p>
                               </div>
                            </div>
                            <!--//tab_one-->
@@ -203,18 +174,16 @@
                                        </div>
                                        <div class="bootstrap-tab-text-grid-right">
                                           <ul>
-                                             <li><a href="#">Admin</a></li>
-                                             <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
+                                             <li><a href="#">Khoa Thái</a></li>
+                                             <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Trả lời</a></li>
                                           </ul>
-                                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget.Ut enim ad minima veniam,
-                                             quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis
-                                             autem vel eum iure reprehenderit.
+                                          <p> Đồ chơi rất tốt, giá cả lại phù hợp, chất liệu thì đảm bảo. Tôi rất thích mua sản phẩm của shop. Nếu được mong shop có thêm nhiều mẫu mã đa dạng kích thích hơn. Cảm ơn. 5 sao nhé *****
                                           </p>
                                        </div>
                                        <div class="clearfix"> </div>
                                     </div>
                                     <div class="add-review">
-                                       <h4>add a review</h4>
+                                       <h4>Thêm nhận xét</h4>
                                        <form action="#" method="post">
                                           <div class="row">
                                              <!-- <div class="col-md-6">
@@ -229,21 +198,6 @@
                                        </form>
                                     </div>
                                  </div>
-                              </div>
-                           </div>
-                           <div class="tab3">
-                              <div class="single_page">
-                                 <h6>Teddy Bear(Blue)</h6>
-                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
-                                 <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-                                    blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                    ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-                                    magna aliqua.
-                                 </p>
                               </div>
                            </div>
                         </div>

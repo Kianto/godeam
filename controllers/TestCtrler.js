@@ -36,7 +36,7 @@ exports.show = async (req, res, next) => {
         // TODO: return ajax
         return res.redirect("/");
     }
-    await Mailer.sendOrderConfirmMail(loggingUser.email);
+    
     console.log("Đăng nhập ...");
     passport.authenticate('local', {session: false}, (err, user) => {
         if (err || !user) {

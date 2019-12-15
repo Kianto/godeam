@@ -77,6 +77,14 @@ UserSchema
   return bcrypt.compareSync(password, this.password);
 }
 
+/* This method is hash password */
+UserSchema
+.methods
+.setPassword = function (password) {
+  let salt = bcrypt.genSaltSync(10);
+  this.password = bcrypt.hashSync(password, salt);
+}
+
 /* This method is to generate a random 2nd password for forgotpassword issue */
 UserSchema
 .methods

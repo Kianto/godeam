@@ -138,7 +138,7 @@
             <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Đồ Chơi Mới</h3>
             <div class="slid-img">
                <ul id="flexiselDemo1">
-                     <% for (var i = 0; i < products.length; i=i+1) { %>
+                  <% for (var i = 0; i < products.length; i=i+1) { %>
                   <li>
                      <div class="agileinfo_port_grid">
                            <div class="product-toys-info">
@@ -147,7 +147,7 @@
                                        <img src=<%=products[i].image %> class="img-thumbnail img-fluid" alt="">
                                        <div class="men-cart-pro">
                                           <div class="inner-men-cart-pro">
-                                             <a href="/single?id=<%= products[i].id %>" class="link-product-add-cart">Xem Chi Tiết</a>
+                                             <a href="<%= products[i].url %>" class="link-product-add-cart">Xem Chi Tiết</a>
                                           </div>
                                        </div>
                                        <span class="product-new-top">Mới</span>
@@ -157,7 +157,7 @@
                                           <div class="grid_meta">
                                              <div class="product_price">
                                                 <h4>
-                                                   <a style="color:black" href="/single?id=<%= products[i].id %>"><%=shorten(products[i].name, 5) %></a>
+                                                   <a style="color:black" href="<%= products[i].url %>"><%=shorten(products[i].name, 5) %></a>
                                                 </h4>
                                                 <div class="grid-price mt-2">
                                                    <span class="money "><%=products[i].price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") %> đ</span>
@@ -208,7 +208,7 @@
                                  </div>
                               </div>
                         <div class="outs_more-buttn">
-                           <a href="shop">Shop Now</a>
+                           <a href="/shop">Mua Ngay</a>
                         </div>
                      </div>
 
@@ -386,7 +386,7 @@
                <p><%= shorten(products[0].description, 40) %> 
                </p>
                <div class="clients_more-buttn">
-                  <a href="shop">Shop Now</a>
+                  <a href="/shop">Mua Ngay</a>
                </div>
             </div>
             <div class="row">
@@ -397,7 +397,7 @@
                      <p><%= shorten(products[1].description, 40) %> 
                      </p>
                      <div class="clients_more-buttn">
-                        <a href="shop">Shop Now</a>
+                        <a href="/shop">Mua Ngay</a>
                      </div>
                   </div>
                </div>
@@ -408,7 +408,7 @@
                      <p><%= shorten(products[2].description, 40) %>
                      </p>
                      <div class="clients_more-buttn">
-                        <a href="shop">Shop Now</a>
+                        <a href="/shop">Mua Ngay</a>
                      </div>
                   </div>
                   <div class="toys-img-one-three">
@@ -417,7 +417,7 @@
                      <p><%= shorten(products[3].description, 40) %>
                      </p>
                      <div class="clients_more-buttn">
-                        <a href="shop">Shop Now</a>
+                        <a href="/shop">Mua Ngay</a>
                      </div>
                   </div>
                </div>
