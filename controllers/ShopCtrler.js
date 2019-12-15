@@ -1,6 +1,7 @@
 var User = require('../models/User');
 var Product = require('../models/Product');
 var Category = require('../models/Category');
+_logined = false;
 
 exports.homeShow = async (req, res, next) => {
     let cates = await Category.find({});

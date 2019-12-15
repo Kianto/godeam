@@ -16,7 +16,7 @@
                  <span class="fas fa-phone-volume"></span>
                  <p> 028 6288 4499</p>
               </div>
-              <div class=" address-gried mt-3">
+              <div class="address-gried mt-3">
                  <span class="far fa-envelope"></span>
                  <p><a href="mailto:kianto@gmail.com">kianto@gmail.com</a>
                     <br><a href="mailto:lychinhky@gmail.com">lychinhky@gmail.com</a>
@@ -276,6 +276,7 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script src="/javascripts/auth-ajax.js"></script>
+<% if (user) { %>
 <script>
 $('#info-email').keyup(function() {
     $.getJSON('/checkEmailExisting?email='+$('#info-email').val(), function (data){
@@ -313,3 +314,4 @@ $('#info-cancel-btn').click(function(e) {
     return false;
 });
 </script>
+<% } %>
