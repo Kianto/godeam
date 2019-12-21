@@ -73,6 +73,7 @@ exports.contact = async (req, res, next) => {
 };
 
 exports.checkout = async (req, res, next) => {
+    console.log(req.body);
     let cates = await Category.find({});
     
     res.render('checkout', { categories : cates });
