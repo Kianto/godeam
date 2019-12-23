@@ -218,7 +218,7 @@
                                        </ul>
                                     </div>
                                     <div class="toys single-item hvr-outline-out">
-                                       <form action="#" method="post">
+                                       <form action="#" method="post" target="paypal">
                                           <input type="hidden" name="cmd" value="_cart">
                                           <input type="hidden" name="add" value="1">
                                           <input type="hidden" name="toys_item" value="<%=products[i].name %>">
@@ -251,14 +251,17 @@
        <script src="/javascripts/minicart.js"></script>
       <script>
          toys.render();
-         
+         // var products = JSON.parse(decodeURIComponent(localStorage.getItem('staplesbmincart')));
+         // var item = products.value.items;
+
          toys.cart.on('toys_checkout', function (evt) {
          	var items, len, i;
          
          	if (this.subtotal() > 0) {
-         		items = this.items();
-         
-         		for (i = 0, len = items.length; i < len; i++) {}
+               items = toys.cart.items();
+         		for (i = 0, len = items.length; i < len; i++) {
+                  
+               }
          	}
          });
       </script>

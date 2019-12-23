@@ -95,51 +95,11 @@
                                        </div>
                                     </div>
                                  </td>
-                                 <td class="invert">Bella Toes</td>
+                                 <td class="invert" id="product"><%= JSON.parse(decodeURIComponent(localStorage.getItem('staplesbmincart'))) %></td>
                                  <td class="invert">$675.00</td>
                                  <td class="invert">
                                     <div class="rem">
                                        <div class="close1"> </div>
-                                    </div>
-                                 </td>
-                              </tr>
-                              <tr class="rem2">
-                                 <td class="invert">2</td>
-                                 <td class="invert-image"><a href="single"><img src="/images/f2.jpg" alt=" " class="img-responsive"></a></td>
-                                 <td class="invert">
-                                    <div class="quantity">
-                                       <div class="quantity-select">
-                                          <div class="entry value-minus">&nbsp;</div>
-                                          <div class="entry value"><span>1</span></div>
-                                          <div class="entry value-plus active">&nbsp;</div>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td class="invert">Red Bellies</td>
-                                 <td class="invert">$325.00</td>
-                                 <td class="invert">
-                                    <div class="rem">
-                                       <div class="close2"> </div>
-                                    </div>
-                                 </td>
-                              </tr>
-                              <tr class="rem3">
-                                 <td class="invert">3</td>
-                                 <td class="invert-image"><a href="single"><img src="/images/f3.jpg" alt=" " class="img-responsive"></a></td>
-                                 <td class="invert">
-                                    <div class="quantity">
-                                       <div class="quantity-select">
-                                          <div class="entry value-minus">&nbsp;</div>
-                                          <div class="entry value"><span>1</span></div>
-                                          <div class="entry value-plus active">&nbsp;</div>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td class="invert">Chikku Loafers</td>
-                                 <td class="invert">$405.00</td>
-                                 <td class="invert">
-                                    <div class="rem">
-                                       <div class="close3"> </div>
                                     </div>
                                  </td>
                               </tr>
@@ -222,8 +182,9 @@
          
          	if (this.subtotal() > 0) {
          		items = this.items();
-         
-         		for (i = 0, len = items.length; i < len; i++) {}
+         		for (i = 0, len = items.length; i < len; i++) {
+                  
+               }
          	}
          });
       </script>

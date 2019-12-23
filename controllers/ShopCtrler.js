@@ -74,13 +74,11 @@ exports.contact = async (req, res, next) => {
 
 exports.checkout = async (req, res, next) => {
     let cates = await Category.find({});
-    
-    res.render('checkout', { categories : cates });
+    res.render('checkout', { categories : cates});
 
 };
 exports.payment = async (req, res, next) => {
     let cates = await Category.find({});
-    
     res.render('payment', { categories : cates });
 
 };
