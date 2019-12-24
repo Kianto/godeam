@@ -68,7 +68,7 @@ td.invert-image a img {
     cursor: pointer;
     width: 41px;
     height: 39px;
-    position: absolute;
+    position: initial;
     right: 6px;
     top: -23px;
 	-webkit-transition: color 0.2s ease-in-out;

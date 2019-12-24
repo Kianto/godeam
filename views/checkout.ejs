@@ -83,26 +83,28 @@
                               </tr>
                            </thead>
                            <tbody>
+                              <% for (var i = 0; i < quantity.length; i=i+1) { %>
                               <tr class="rem1">
                                  <td class="invert">1</td>
-                                 <td class="invert-image"><a href="single"><img src="/images/f1.jpg" alt=" " class="img-responsive"></a></td>
-                                 <td class="invert">
+                                 <td class="invert-image"><a href="single"><img src="<%= products[i].image %>" alt=" " class="img-responsive"></a></td>
+                                 <td class="invert" width="20%">
                                     <div class="quantity">
                                        <div class="quantity-select">
                                           <div class="entry value-minus">&nbsp;</div>
-                                          <div class="entry value"><span>1</span></div>
+                                          <div class="entry value"><span><%= quantity[i] %></span></div>
                                           <div class="entry value-plus active">&nbsp;</div>
                                        </div>
                                     </div>
                                  </td>
-                                 <td class="invert" id="product"><%= JSON.parse(decodeURIComponent(localStorage.getItem('staplesbmincart'))) %></td>
-                                 <td class="invert">$675.00</td>
+                                 <td class="invert" id="product"><%= products[i].name %></td>
+                                 <td class="invert"><%= products[i].price * quantity[i] %>đ</td>
                                  <td class="invert">
                                     <div class="rem">
                                        <div class="close1"> </div>
                                     </div>
                                  </td>
                               </tr>
+                              <% } %>
                            </tbody>
                         </table>
                      </div>
@@ -110,10 +112,16 @@
                         <div class="col-md-4 checkout-left-basket">
                            <h4>Giá tiền dự tính thanh toán</h4>
                            <ul>
-                              <li>Product1 <i>-</i> <span>$675.00 </span></li>
-                              <li>Product2 <i>-</i> <span>$325.00 </span></li>
-                              <li>Product3 <i>-</i> <span>$405.00 </span></li>
-                              
+                              <% for (var i = 0; i < quantity.length; i=i+1) { %>
+                              <li>
+                                    <div >
+                                       <%= products[i].name %>
+                                    </div>
+                                    <div >
+                                       <%= products[i].price * quantity[i] %>
+                                    </div>
+                              </li>
+                              <% } %>
                               <li>Tổng tiền: <i>-</i> <span>$1405.00</span></li>
                            </ul>
                         </div>

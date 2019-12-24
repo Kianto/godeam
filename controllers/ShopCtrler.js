@@ -1,5 +1,5 @@
 var User = require('../models/User');
-var Product = require('../models/Product');
+var Product = require('../models/Product'); 
 var Category = require('../models/Category');
 _logined = false;
 
@@ -74,8 +74,11 @@ exports.contact = async (req, res, next) => {
 
 exports.checkout = async (req, res, next) => {
     console.log(req.body);
+    let quantity = await req.body.quantity;
+    let id = await req.body.item_number;
+    let products = await Product.find().where('_id').in(id).exec();
     let cates = await Category.find({});
-    res.render('checkout', { categories : cates});
+    res.render('checkout', { categories : cates, quantity, products});
 
 };
 exports.payment = async (req, res, next) => {
