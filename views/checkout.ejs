@@ -84,6 +84,7 @@
                            </thead>
                            <tbody>
                               <% for (var i = 0; i < quantity.length; i=i+1) { %>
+                                 <% var price %>
                               <tr class="rem_<%= i %>">
                                  <td class="invert"><%= i+1 %></td>
                                  <td class="invert-image"><a href="single"><img src="<%= products[i].image %>" alt=" " class="img-responsive"></a></td>
@@ -97,7 +98,8 @@
                                     </div>
                                  </td>
                                  <td class="invert" id="product"><%= products[i].name %></td>
-                                 <td class="invert"><%= products[i].price * quantity[i] %>đ</td>
+                                 <td class="invert"><%= price = products[i].price * quantity[i] %>đ</td>
+                                 <% total = total + price %>
                                  <td class="invert">
                                     <div class="rem">
                                        <div class="close" id="rem_<%= i %>"></div>
@@ -118,7 +120,11 @@
                                     <div class = "float-right" style = "display:inline-block"><%= products[i].price * quantity[i] %></div>
                               </li>
                               <% } %>
-                              <li>Tổng tiền: <i>-</i> <span>$1405.00</span></li>
+                              <!-- <li class="col-md-8">Tổng tiền: <span>$1405.00</span></li> -->
+                              <li>
+                                 <div class="col-md-8" style = "display:inline-block"><b>Tổng tiền:</b></div>
+                                 <div class = "float-right" style = "display:inline-block"><b><%= total %></b></div>
+                              </li>
                            </ul>
                         </div>
                         <div class="col-md-8 address_form">

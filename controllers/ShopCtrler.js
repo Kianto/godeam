@@ -74,7 +74,8 @@ exports.checkout = async (req, res, next) => {
 	let id = await req.body.item_number;
 	let products = await Product.find().where('_id').in(id).exec();
 	let cates = await Category.find({});
-	res.render('checkout', { categories: cates, quantity: quantity, products: products });
+	let total = 0;
+	res.render('checkout', { categories: cates, quantity: quantity, products: products, total});
 };
 exports.payment = async (req, res, next) => {
 	let cates = await Category.find({});
