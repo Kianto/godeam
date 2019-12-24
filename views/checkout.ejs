@@ -84,8 +84,8 @@
                            </thead>
                            <tbody>
                               <% for (var i = 0; i < quantity.length; i=i+1) { %>
-                              <tr class="rem1">
-                                 <td class="invert">1</td>
+                              <tr class="rem_<%= i %>">
+                                 <td class="invert"><%= i+1 %></td>
                                  <td class="invert-image"><a href="single"><img src="<%= products[i].image %>" alt=" " class="img-responsive"></a></td>
                                  <td class="invert" width="20%">
                                     <div class="quantity">
@@ -100,7 +100,7 @@
                                  <td class="invert"><%= products[i].price * quantity[i] %>đ</td>
                                  <td class="invert">
                                     <div class="rem">
-                                       <div class="close1"> </div>
+                                       <div class="close" id="rem_<%= i %>"></div>
                                     </div>
                                  </td>
                               </tr>
@@ -114,12 +114,8 @@
                            <ul>
                               <% for (var i = 0; i < quantity.length; i=i+1) { %>
                               <li>
-                                    <div >
-                                       <%= products[i].name %>
-                                    </div>
-                                    <div >
-                                       <%= products[i].price * quantity[i] %>
-                                    </div>
+                                    <div class="col-md-8" style = "display:inline-block"><%= products[i].name %></div>
+                                    <div class = "float-right" style = "display:inline-block"><%= products[i].price * quantity[i] %></div>
                               </li>
                               <% } %>
                               <li>Tổng tiền: <i>-</i> <span>$1405.00</span></li>
@@ -214,31 +210,16 @@
       <!--quantity-->
       <!--closed-->
       <script>
-         $(document).ready(function (c) {
-         	$('.close1').on('click', function (c) {
-         		$('.rem1').fadeOut('slow', function (c) {
-         			$('.rem1').remove();
-         		});
-         	});
-         });
-      </script>
-      <script>
-         $(document).ready(function (c) {
-         	$('.close2').on('click', function (c) {
-         		$('.rem2').fadeOut('slow', function (c) {
-         			$('.rem2').remove();
-         		});
-         	});
-         });
-      </script>
-      <script>
-         $(document).ready(function (c) {
-         	$('.close3').on('click', function (c) {
-         		$('.rem3').fadeOut('slow', function (c) {
-         			$('.rem3').remove();
-         		});
-         	});
-         });
+            $(document).ready(function (c) {
+               for(var i =0; i< "<%= products.length %>"; i++)
+               {
+         	      $('#rem_' + i).on('click', function (c) {
+         		      $('.'+this.id).fadeOut('slow', function (c) {
+         			      $('.rem_'+i).remove();
+         		      });
+                  });
+               }
+            });
       </script>
       <!--//closed-->
       <!-- start-smoth-scrolling -->
