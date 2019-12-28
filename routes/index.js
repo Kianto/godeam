@@ -11,17 +11,23 @@ var authCtrler = require('../controllers/AuthCtrler');
 /* GET home page. */
 router.get('/', shopCtrler.homeShow);
 
+router.get('/test', async (req, res, next) => {
+	console.log(`jwt: ${req.cookies.jwt}`);
+});
+
 /* POST: redirect to checkout page */
-router.post('/checkout',shopCtrler.checkout);
+router.post('/checkout', shopCtrler.checkout);
 
 /* GET: redirect to checkout page */
-router.get('/checkout',shopCtrler.checkout);
+router.get('/checkout', shopCtrler.checkout);
 
 router.get('/payment', shopCtrler.payment);
 
+router.post('/order', shopCtrler.order);
+
 /* GET incase wrong direction */
 router.get('/product', function(req, res, next) {
-  res.redirect('/shop');
+	res.redirect('/shop');
 });
 
 /* GET product detail page */
@@ -72,8 +78,7 @@ router.get('/temp', testCtrler.show);
 
 /* GET error page */
 router.get('/error', function(req, res, next) {
-  res.render('error', { title: 'GoDeam Toy World' });
+	res.render('error', { title: 'GoDeam Toy World' });
 });
-
 
 module.exports = router;

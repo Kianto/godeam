@@ -47,10 +47,10 @@ exports.sendForgotPasswordMail = async (email, password) => {
 
 exports.sendOrderConfirmMail = async (email, order) => {
 	let mail = {
-		from: 'ttsgroup4@gmail.com',
+		from: 'godeamshop@gmail.com',
 		to: email,
 		subject: 'GoDeam: Kiểm tra đơn đặt hàng của bạn',
-		text: 'Bạn vừa đặt hàng từ chúng tôi.',
+		text: 'Bạn vừa đặt hàng từ chúng tôi. Chi tiết giỏ hàng của bạn là: ',
 		html: '<p>You have got a new message</p>'
 	};
 
