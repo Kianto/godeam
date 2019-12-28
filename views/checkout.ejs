@@ -71,9 +71,9 @@
       <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
          <div class="shop_inner_inf">
             <div class="privacy about">
-               <h3>Chec<span>kout</span></h3>
+               <h3><span>Giỏ hàng</span></h3>
+               <form id="checkout-form" action="/payment" method="post" class="creditly-card-form agileinfo_form">
                <div class="checkout-right">
-                  <h4>Your shopping cart contains: <span>3 Products</span></h4>
                   <table class="timetable_sub">
                      <thead>
                         <tr>
@@ -86,8 +86,10 @@
                         </tr>
                      </thead>
                      <tbody>
+                        <% var total = 0 %>
                         <% for (var i = 0; i < quantity.length; i=i+1) { %>
                         <% var price %>
+                        <input readonly='' style="visibility: collapse;" value="<%= products[i].id %>" name="ids"></input>
                         <tr class="rem_<%= i %>">
                            <td class="invert"><%= i+1 %></td>
                            <td class="invert-image"><a href="single"><img src="<%= products[i].image %>" alt=" "
@@ -96,7 +98,7 @@
                               <div class="quantity">
                                  <div class="quantity-select">
                                     <div class="entry value-minus">&nbsp;</div>
-                                    <div class="entry value"><span><%= quantity[i] %></span></div>
+                                    <input class="entry value" style="color: black;" readonly='' name='quantities' value="<%= quantity[i] %>"></input>
                                     <div class="entry value-plus active">&nbsp;</div>
                                  </div>
                               </div>
@@ -133,59 +135,32 @@
                      </ul>
                   </div>
                   <div class="col-md-8 address_form">
+                     <% if (user) { %>
                      <h4>Thông tin giao hàng</h4>
-                     <form action="payment" method="post" class="creditly-card-form agileinfo_form">
                         <section class="creditly-wrapper wrapper">
-                           <div class="information-wrapper">
-                              <div class="first-row form-group">
-                                 <div class="controls">
-                                    <label class="control-label">Họ - Tên người nhận: </label>
-                                    <input class="billing-address-name form-control" type="text" name="name"
-                                       placeholder="Nhập họ tên đầy đủ">
-                                 </div>
-                                 <div class="card_number_grids">
-                                    <div class="card_number_grid_left">
-                                       <div class="controls">
-                                          <label class="control-label">Số điện thoại:</label>
-                                          <input class="form-control" type="text" placeholder="Nhập số điện thoại">
-                                       </div>
-                                    </div>
-
-                                    <div class="clear"> </div>
-                                 </div>
-                                 <div class="controls">
-                                    <label class="control-label">Số điện thoại:</label>
-                                    <input class="form-control" type="text" placeholder="Nhập số điện thoại">
-                                 </div>
-                              </div>
-
-                              <div class="clear"> </div>
-                           </div>
                            <div class="controls">
-                              <label class="control-label">Địa chỉ người nhận: </label>
-                              <input class="form-control" type="text" placeholder="Nhập địa chỉ người nhận">
+                              <label class="control-label">Địa chỉ giao hàng: </label>
+                              <input class="form-control" type="text" name='address' placeholder="Nhập địa chỉ người nhận" value="<%= user.address %>">
                            </div>
-                           <div class="controls">
-                              <!-- <label class="control-label">Address type: </label>
-                                          <select class="form-control option-w3ls">
-                                             <option>Office</option>
-                                             <option>Home</option>
-                                             <option>Commercial</option>
-                                          </select> -->
-                           </div>
-                  </div>
-                  <!-- <button class="submit check_out">Delivery to this Address</button> -->
+                        </section>
+                        <div class="checkout-right-basket">
+                           <input type="submit" value="Thanh toán"></input>
+                        </div>
+                     <% } else { %>
+                     <h4 style="color: red;">Bạn cần đăng nhập để được thanh toán đặt hàng !</h4>
+                     <div class="checkout-right-basket">
+                     <a type="button" style="color: seashell;" data-toggle="modal" data-target="#exampleModal"> <span
+                        class="far fa-user"> Đăng nhập</span></a>
+                     </div>
+                     <% } %>
                </div>
-   </section>
-   </form>
-   <div class="checkout-right-basket">
-      <a href="payment">Thanh toán</a>
-   </div>
-   </div>
-   <div class="clearfix"> </div>
-   <div class="clearfix"></div>
-   </div>
-   </div>
+               
+               <div class="clearfix"> </div>
+               <div class="clearfix"></div>
+               </form>
+            </div>
+         </div>
+      </div>
    </section>
    <!-- Footer -->
    <% include footer%>
@@ -214,14 +189,14 @@
    <script>
       $('.value-plus').on('click', function () {
          var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) + 1;
-         divUpd.text(newVal);
+            newVal = parseInt(divUpd.val(), 10) + 1;
+         divUpd.val(newVal);
       });
 
       $('.value-minus').on('click', function () {
          var divUpd = $(this).parent().find('.value'),
-            newVal = parseInt(divUpd.text(), 10) - 1;
-         if (newVal >= 1) divUpd.text(newVal);
+            newVal = parseInt(divUpd.val(), 10) - 1;
+         if (newVal >= 1) divUpd.val(newVal);
       });
    </script>
    <!--quantity-->

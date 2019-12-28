@@ -23,6 +23,8 @@ router.get('/checkout', shopCtrler.checkout);
 
 router.get('/payment', shopCtrler.payment);
 
+router.post('/payment', shopCtrler.payment);
+
 router.post('/order', shopCtrler.order);
 
 /* GET incase wrong direction */

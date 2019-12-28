@@ -50,35 +50,47 @@ exports.productDetail = async (req, res, next) => {
 	res.render('single', { categories: cates, product });
 };
 
-exports.cart = async (req, res, next) => {
-	let cates = await Category.find({});
-	// TODO:
-
-	res.render('index', { title: 'GoDeam Toy World' });
-};
-
 exports.order = async (req, res, next) => {
-	let cates = await Category.find({});
-	let order;
-	await User.findByEmail({ email: res.locals.user.email }).then(async (user) => {
+	User.findByEmail(res.locals.user.email).then(async (user) => {
 		if (user) {
-			order = new Order({
-				idUser: req.body.idUser,
-				cart: req.body.cart,
-				shipTo: req.body.shipTo
+			let order = new Order({
+				idUser: user._id,
+				shipTo: req.body.address,
+				cartItemIds: req.body.ids,
+				cartItemQuantities: req.body.quantities,
+				  
+				cardOwner: req.body.cardOwner,
+				cardNo: req.body.cardNo,
+				cardExpDate: req.body.expDate,
+				cardCvv: req.body.cvvNo,
 			});
-			await order.save();
-			res.send(
-				'Chúng tôi đã gửi hóa đơn về cho ' +
-					res.locals.user.email +
-					'.Hãy check mail của bạn để xem hóa đơn bạn vừa đặt hàng'
-			);
+			if (req.body.cardNo[0] === 3)
+				order.cardType = "American Express"
+			else if (req.body.cardNo[0] === 4)
+				order.cardType = "Visa"
+			else if (req.body.cardNo[0] === 5)
+				order.cardType = "MasterCard"
+			else if (req.body.cardNo[0] === 6)
+				order.cardType = "Discover Card"
+			else
+				order.cardType = "Invalid Card"
+			
+			// await order.save();
+			// TODO: send mail
+
+			return res.json({
+				status: 200,
+				code: 1,
+				message: 'Succeed',
+				data: true
+			});
 		} else {
-			res.send({
+			let error = {
 				status: 500,
-				code: 1002,
+				code: 1001,
 				message: 'Fail'
-			});
+			};
+			return res.status(500).json({ data: false, error });
 		}
 	});
 };
@@ -90,21 +102,27 @@ exports.contact = async (req, res, next) => {
 };
 
 exports.checkout = async (req, res, next) => {
-	console.log(req.body);
+	let cates = await Category.find({});
 	let quantity = await req.body.quantity;
 	let id = await req.body.item_number;
 	let products = await Product.find().where('_id').in(id).exec();
-	let cates = await Category.find({});
-	let total = 0;
-	res.render('checkout', { categories: cates, quantity: quantity, products: products, total });
+	res.render('checkout', { categories: cates, quantity: quantity, products: products });
 };
+
 exports.payment = async (req, res, next) => {
 	let cates = await Category.find({});
-	res.render('payment', { categories: cates });
+	console.log(req.body);
+
+	let quantities = await req.body.quantities;
+	let ids = await req.body.ids;
+	let products = await Product.find().where('_id').in(ids).exec();
+	let lastOrder = await Order.findOne({ idUser : res.locals.user.email}).sort({ creatAt: -1 })
+
+	res.render('payment', { categories: cates, quantities, products, address: req.body.address, lastOrder });
 };
+
 exports.single = async (req, res, next) => {
 	let cates = await Category.find({});
-
 	let product = await Product.findById(req.query.id);
 
 	res.render('single', { categories: cates, product });

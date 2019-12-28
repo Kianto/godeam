@@ -1976,10 +1976,10 @@ var defaults = module.exports = {
     styles: '',
 
     strings: {
-        button: 'Check Out',
-        subtotal: 'Subtotal:',
-        discount: 'Discount:',
-        empty: 'Your shopping cart is empty'
+        button: 'Thanh toán',
+        subtotal: 'Tổng:',
+        discount: 'Giảm:',
+        empty: 'Giỏ hàng của bạn đang trống.'
     }
 
 };

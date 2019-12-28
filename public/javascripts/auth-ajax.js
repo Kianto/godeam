@@ -67,7 +67,12 @@ $('#login-form').on('submit', function(e) {
         success: function(data) {
             const user = data.data;
             window.location.replace('/?name=' + user.name + '&token=' + user.token + '&email=' + user.email);
-            location.href = location;
+            
+            var pathname = window.location.pathname;
+            if (pathname.includes("checkout")) 
+                $('.sbmincart-submit').click();
+            else
+                location.href = location;
         },
         error: function(error){
             const code =  error.responseJSON.error.code;
@@ -85,7 +90,10 @@ $('#login-form').on('submit', function(e) {
 
 $('#logout-btn').on('click', function(e) {
     $.get('/logout').done(() => {
-        window.location.reload();
+        if (pathname.includes("payment")) 
+            window.location.replace('/');
+        else
+            location.href = location;
     });
 });
 

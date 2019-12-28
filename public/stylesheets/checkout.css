@@ -200,6 +200,14 @@ td.invert-image a img {
 	margin: 2em 0 0;
 }
 
+.checkout-right-basket input {
+	padding: 10px 20px;
+	color: #fff;
+	font-size: 1em;
+	background: #212121;
+	text-decoration: none;
+}
+
 .checkout-right-basket a {
 	padding: 10px 20px;
 	color: #fff;
