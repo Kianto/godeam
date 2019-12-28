@@ -86,9 +86,10 @@
                         </tr>
                      </thead>
                      <tbody>
-                        <% for (let i = 0; i < quantity.length; i=i+1) { %>
-                        <tr class="rem1">
-                           <td class="invert">1</td>
+                        <% for (var i = 0; i < quantity.length; i=i+1) { %>
+                        <% var price %>
+                        <tr class="rem_<%= i %>">
+                           <td class="invert"><%= i+1 %></td>
                            <td class="invert-image"><a href="single"><img src="<%= products[i].image %>" alt=" "
                                     class="img-responsive"></a></td>
                            <td class="invert" width="20%">
@@ -101,10 +102,11 @@
                               </div>
                            </td>
                            <td class="invert" id="product"><%= products[i].name %></td>
-                           <td class="invert"><%= products[i].price * quantity[i] %>đ</td>
+                           <td class="invert"><%= price = products[i].price * quantity[i] %>đ</td>
+                           <% total = total + price %>
                            <td class="invert">
                               <div class="rem">
-                                 <div class="close1"> </div>
+                                 <div class="close" id="rem_<%= i %>"></div>
                               </div>
                            </td>
                         </tr>
@@ -118,15 +120,16 @@
                      <ul>
                         <% for (var i = 0; i < quantity.length; i=i+1) { %>
                         <li>
-                           <div>
-                              <%= products[i].name %>
-                           </div>
-                           <div>
-                              <%= products[i].price * quantity[i] %>
+                           <div class="col-md-8" style="display:inline-block"><%= products[i].name %></div>
+                           <div class="float-right" style="display:inline-block"><%= products[i].price * quantity[i] %>
                            </div>
                         </li>
                         <% } %>
-                        <li>Tổng tiền: <i>-</i> <span>$1405.00</span></li>
+                        <!-- <li class="col-md-8">Tổng tiền: <span>$1405.00</span></li> -->
+                        <li>
+                           <div class="col-md-8" style="display:inline-block"><b>Tổng tiền:</b></div>
+                           <div class="float-right" style="display:inline-block"><b><%= total %></b></div>
+                        </li>
                      </ul>
                   </div>
                   <div class="col-md-8 address_form">
@@ -151,33 +154,38 @@
                                     <div class="clear"> </div>
                                  </div>
                                  <div class="controls">
-                                    <label class="control-label">Địa chỉ người nhận: </label>
-                                    <input class="form-control" type="text" placeholder="Nhập địa chỉ người nhận">
+                                    <label class="control-label">Số điện thoại:</label>
+                                    <input class="form-control" type="text" placeholder="Nhập số điện thoại">
                                  </div>
-                                 <div class="controls">
-                                    <!-- <label class="control-label">Address type: </label>
+                              </div>
+
+                              <div class="clear"> </div>
+                           </div>
+                           <div class="controls">
+                              <label class="control-label">Địa chỉ người nhận: </label>
+                              <input class="form-control" type="text" placeholder="Nhập địa chỉ người nhận">
+                           </div>
+                           <div class="controls">
+                              <!-- <label class="control-label">Address type: </label>
                                           <select class="form-control option-w3ls">
                                              <option>Office</option>
                                              <option>Home</option>
                                              <option>Commercial</option>
                                           </select> -->
-                                 </div>
-                              </div>
-                              <!-- <button class="submit check_out">Delivery to this Address</button> -->
                            </div>
-                        </section>
-                     </form>
-                     <div class="checkout-right-basket">
-                        <a href="payment">Thanh toán</a>
-                     </div>
                   </div>
-                  <div class="clearfix"> </div>
-                  <div class="clearfix"></div>
+                  <!-- <button class="submit check_out">Delivery to this Address</button> -->
                </div>
-            </div>
-         </div>
-         <!-- //top products -->
-      </div>
+   </section>
+   </form>
+   <div class="checkout-right-basket">
+      <a href="payment">Thanh toán</a>
+   </div>
+   </div>
+   <div class="clearfix"> </div>
+   <div class="clearfix"></div>
+   </div>
+   </div>
    </section>
    <!-- Footer -->
    <% include footer%>
@@ -220,29 +228,13 @@
    <!--closed-->
    <script>
       $(document).ready(function (c) {
-         $('.close1').on('click', function (c) {
-            $('.rem1').fadeOut('slow', function (c) {
-               $('.rem1').remove();
+         for (var i = 0; i < "<%= products.length %>"; i++) {
+            $('#rem_' + i).on('click', function (c) {
+               $('.' + this.id).fadeOut('slow', function (c) {
+                  $('.rem_' + i).remove();
+               });
             });
-         });
-      });
-   </script>
-   <script>
-      $(document).ready(function (c) {
-         $('.close2').on('click', function (c) {
-            $('.rem2').fadeOut('slow', function (c) {
-               $('.rem2').remove();
-            });
-         });
-      });
-   </script>
-   <script>
-      $(document).ready(function (c) {
-         $('.close3').on('click', function (c) {
-            $('.rem3').fadeOut('slow', function (c) {
-               $('.rem3').remove();
-            });
-         });
+         }
       });
    </script>
    <!--//closed-->
