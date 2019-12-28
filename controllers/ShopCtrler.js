@@ -96,11 +96,10 @@ exports.checkout = async (req, res, next) => {
 	let products = await Product.find().where('_id').in(id).exec();
 	let cates = await Category.find({});
 	let total = 0;
-	res.render('checkout', { categories: cates, quantity: quantity, products: products, total});
+	res.render('checkout', { categories: cates, quantity: quantity, products: products, total });
 };
 exports.payment = async (req, res, next) => {
-	console.log(JSON.stringify(req.body));
-	//res.send('<h1>OK</h1>');
+	let cates = await Category.find({});
 	res.render('payment', { categories: cates });
 };
 exports.single = async (req, res, next) => {
