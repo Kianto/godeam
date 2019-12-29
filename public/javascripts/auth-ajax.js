@@ -90,6 +90,7 @@ $('#login-form').on('submit', function(e) {
 
 $('#logout-btn').on('click', function(e) {
     $.get('/logout').done(() => {
+        var pathname = window.location.pathname;
         if (pathname.includes("payment")) 
             window.location.replace('/');
         else
@@ -138,7 +139,6 @@ $('#changepass-form').on('submit', function(e) {
     })
 });
 
-
 $('#changeinfo-form').on('submit', function(e) {
     e.preventDefault();
     var form = $(this);
@@ -160,6 +160,33 @@ $('#changeinfo-form').on('submit', function(e) {
                 break;
             case 1005:
                 $('#changeinfo-error-message').html('Hệ thống tạm thời không xử lý được!');
+                break;
+            }
+        }
+    })
+});
+
+$('#forgot-form').on('submit', function(e) {
+    e.preventDefault();
+    var form = $(this);
+    var url = form.attr('action');
+    
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: $('#forgot-form').serialize(),
+        success: function(data) {
+            alert('Mật khẩu tạm thời đã được gửi đến email của bạn. Hãy dùng nó để đăng nhập và thay đổi mật khẩu.');
+            window.location.reload();
+        },
+        error: function(error){
+            const code =  error.responseJSON.error.code;
+            switch(code) {
+            case 1003:
+                $('#forgot-error-message').html('Email này chưa được đăng ký');
+                break;
+            case 1005:
+                $('#forgot-error-message').html('Hệ thống tạm thời không xử lý được!');
                 break;
             }
         }

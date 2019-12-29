@@ -50,8 +50,16 @@ exports.sendOrderConfirmMail = async (email, order) => {
 		from: 'godeamshop@gmail.com',
 		to: email,
 		subject: 'GoDeam: Kiểm tra đơn đặt hàng của bạn',
-		text: 'Bạn vừa đặt hàng từ chúng tôi. Chi tiết giỏ hàng của bạn là: ',
-		html: '<p>You have got a new message</p>'
+		text: 'Bạn vừa đặt hàng từ chúng tôi.',
+		html: '<p>Chào bạn</p>'
+		+ '<p>Cảm ơn bạn đã đặt hàng từ GoDeam. Đơn hàng của bạn sẽ được giao sớm nhất có thể.</p>'
+		+ '<p>+ Ngày giao: ' + order.shipTime + '</p>'
+		+ '<p>+ Địa chỉ giao: ' + order.shipTo + '</p>'
+		+ '<br>'
+		+ '<b>Lưu ý:</b> <i>Hãy kiểm tra đơn hàng thường xuyên để cập nhật trạng thái của đơn hàng.</i>'
+		+ '<br>'
+		+ '<p>Trân trọng</p>'
+		+ '<p>TTS</p>'
 	};
 
 	let resp = false;

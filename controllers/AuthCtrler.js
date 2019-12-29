@@ -82,20 +82,35 @@ exports.checkEmailExisting = async (req, res, next) => {
 exports.forgotPassword = async (req, res, next) => {
 	console.log(req.body);
 	let email = req.body.email;
-	//const password_random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 	User.findByEmail(email).then((user) => {
 		temp_password = user.genTempPassword();
+		console.log(temp_password);
 		if (user) {
 			Mailer.sendForgotPasswordMail(email, temp_password)
 				.then(() => {
-					res.send('<h1>Đã gửi đến email ' + email + '<h1>');
+					return res.json({
+					status: 200,
+					code: 1,
+					message: 'Succeed',
+					data: true
+				});
 				})
 				.catch((err) => {
 					console.log(err);
-					res.send('<h1>Lỗi gửi email, liên hệ admin để fix lỗi' + '<h1>');
+					let error = {
+						status: 500,
+						code: 1005,
+						message: 'Fail'
+					};
+					return res.status(500).json({ data: {}, error });
 				});
 		} else {
-			res.send('<h1>Email ' + email + ' bạn nhập không tồn tại' + '<h1>');
+			let error = {
+				status: 400,
+				code: 1003,
+				message: 'Fail'
+			};
+			return res.status(400).json({ data: {}, error });
 		}
 	});
 };

@@ -89,7 +89,6 @@
                         <% var total = 0 %>
                         <% for (var i = 0; i < quantity.length; i=i+1) { %>
                         <% var price %>
-                        <input readonly='' style="visibility: collapse;" value="<%= products[i].id %>" name="ids"></input>
                         <tr class="rem_<%= i %>">
                            <td class="invert"><%= i+1 %></td>
                            <td class="invert-image"><a href="single"><img src="<%= products[i].image %>" alt=" "
@@ -100,6 +99,9 @@
                                     <div class="entry value-minus">&nbsp;</div>
                                     <input class="entry value" style="color: black;" readonly='' name='quantities' value="<%= quantity[i] %>"></input>
                                     <div class="entry value-plus active">&nbsp;</div>
+                                    <div class='q-form' style="display: none;">
+                                       <input readonly='' style="visibility: collapse;" value="<%= products[i].id %>" name="ids"></input>
+                                    </div>
                                  </div>
                               </div>
                            </td>
@@ -122,12 +124,13 @@
                      <ul>
                         <% for (var i = 0; i < quantity.length; i=i+1) { %>
                         <li>
+                           <div class="rem_<%= i %>">
                            <div class="col-md-8" style="display:inline-block"><%= products[i].name %></div>
                            <div class="float-right" style="display:inline-block"><%= products[i].price * quantity[i] %>
                            </div>
+                           </div>
                         </li>
                         <% } %>
-                        <!-- <li class="col-md-8">Tổng tiền: <span>$1405.00</span></li> -->
                         <li>
                            <div class="col-md-8" style="display:inline-block"><b>Tổng tiền:</b></div>
                            <div class="float-right" style="display:inline-block"><b><%= total %></b></div>
@@ -155,7 +158,7 @@
                      <% } %>
                </div>
                
-               <div class="clearfix"> </div>
+               <div class="clearfix"></div>
                <div class="clearfix"></div>
                </form>
             </div>
@@ -196,18 +199,31 @@
       $('.value-minus').on('click', function () {
          var divUpd = $(this).parent().find('.value'),
             newVal = parseInt(divUpd.val(), 10) - 1;
-         if (newVal >= 1) divUpd.val(newVal);
+         if (newVal >= 1) {
+            divUpd.val(newVal);
+         }
       });
    </script>
    <!--quantity-->
    <!--closed-->
    <script>
       $(document).ready(function (c) {
-         for (var i = 0; i < "<%= products.length %>"; i++) {
+         for (var i = 0; i < "<%= products.length %>"; i=i+1) {
             $('#rem_' + i).on('click', function (c) {
                $('.' + this.id).fadeOut('slow', function (c) {
-                  $('.rem_' + i).remove();
+                  $(this).remove();
                });
+               if ($('[class^=rem_]').length == 1) {
+                  while ($('.sbmincart-remove').length !== 0) {
+                    $('.top_toys_cart').click();
+                    $('.sbmincart-remove').each(function() {
+                        $(this).trigger("click").delay(100);
+                    });
+                    $('.sbmincart-closer').click();
+                  }
+                  alert("Giỏ trống. Bạn sẽ được điều hướng đến trang chủ. Hãy thỏa thích mua sắm !");
+                  window.location.replace('/');
+               }
             });
          }
       });

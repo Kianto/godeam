@@ -75,15 +75,25 @@ exports.order = async (req, res, next) => {
 			else
 				order.cardType = "Invalid Card"
 			
-			// await order.save();
-			// TODO: send mail
-
-			return res.json({
-				status: 200,
-				code: 1,
-				message: 'Succeed',
-				data: true
-			});
+			order.save();
+			Mailer.sendOrderConfirmMail(user.email, order)
+				.then(() => {
+					return res.json({
+					status: 200,
+					code: 1,
+					message: 'Succeed',
+					data: true
+				});
+				})
+				.catch((err) => {
+					console.log(err);
+					let error = {
+						status: 500,
+						code: 1005,
+						message: 'Fail'
+					};
+					return res.status(500).json({ data: {}, error });
+				});
 		} else {
 			let error = {
 				status: 500,
@@ -105,7 +115,11 @@ exports.checkout = async (req, res, next) => {
 	let cates = await Category.find({});
 	let quantity = await req.body.quantity;
 	let id = await req.body.item_number;
-	let products = await Product.find().where('_id').in(id).exec();
+	// let products = await Product.find().where('_id').in(id).exec();
+	let products = [];
+	for(i = 0; i < id.length; i = i + 1) {
+		products.push(await Product.findById(id[i]));
+	}
 	res.render('checkout', { categories: cates, quantity: quantity, products: products });
 };
 
