@@ -129,7 +129,11 @@ exports.payment = async (req, res, next) => {
 
 	let quantities = await req.body.quantities;
 	let ids = await req.body.ids;
-	let products = await Product.find().where('_id').in(ids).exec();
+	// let products = await Product.find().where('_id').in(ids).exec();
+	let products = [];
+	for(i = 0; i < id.length; i = i + 1) {
+		products.push(await Product.findById(id[i]));
+	}
 	let lastOrder = await Order.findOne({ idUser : res.locals.user.email}).sort({ creatAt: -1 })
 
 	res.render('payment', { categories: cates, quantities, products, address: req.body.address, lastOrder });
