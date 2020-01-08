@@ -131,8 +131,8 @@ exports.payment = async (req, res, next) => {
 	let ids = await req.body.ids;
 	// let products = await Product.find().where('_id').in(ids).exec();
 	let products = [];
-	for(i = 0; i < id.length; i = i + 1) {
-		products.push(await Product.findById(id[i]));
+	for(i = 0; i < ids.length; i = i + 1) {
+		products.push(await Product.findById(ids[i]));
 	}
 	let lastOrder = await Order.findOne({ idUser : res.locals.user.email}).sort({ creatAt: -1 })
 
